@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Core.CrossCuttingConcerns.Validation
 {
+    //Cross Custting Concerns- Validation,Log,Cache,Transaction,Auth
+    //Her katmanı dikine keser yani her yerde kullanılır
     public static class ValidationTool
     {
         public static void Validate(IValidator validator,object entity)

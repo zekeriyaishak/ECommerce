@@ -17,12 +17,15 @@ namespace Business.DependencyResolvers.Autofac
     //sen bir autofac modülüsün
     public class AutofacBusinessModule : Module
     {
+        //Cross Cutting Concerns - Log,Cache,Transaction,Authorization
         protected override void Load(ContainerBuilder builder)
         {
             //autofac'de kayıt geliştirmek böyle oluyor.
             //birisi sendeen IProductService isterse ona productmanager örneği ver demek. Tek bir instance oluşturur tutar
             builder.RegisterType<ProductManager>().As<IProductService>().SingleInstance();
             builder.RegisterType<EfProductDal>().As<IProductDal>().SingleInstance();
+            builder.RegisterType<CategoryManager>().As<ICategoryService>().SingleInstance();
+            builder.RegisterType<EfCategoryDal>().As<ICategoryDal>().SingleInstance();
 
             //Aldım
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
