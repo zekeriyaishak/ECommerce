@@ -19,5 +19,8 @@ namespace Business.Abstract
         IDataResult<Product> GetById(int productId);
         IResult Add(Product product);
         IResult Update(Product product);
+
+        //İki işlem gerçekleşirken iptal olursa işlemi geri alması gerekir
+        IResult AddTransactionalTest(Product product);  
     }
 }
