@@ -24,6 +24,9 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
+            //Eğer sistemin loading'ini görmek istersen aç
+            //Thread.Sleep(5000);
+
             var result = _productService.GetAll();
             if (result.Success)
             {
